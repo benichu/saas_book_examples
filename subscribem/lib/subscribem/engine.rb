@@ -1,7 +1,6 @@
 require "warden"
 require "dynamic_form"
 require "apartment"
-require "pry"
 
 module Subscribem
   class Engine < ::Rails::Engine
