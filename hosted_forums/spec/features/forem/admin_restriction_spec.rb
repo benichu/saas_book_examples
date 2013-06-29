@@ -17,8 +17,10 @@ feature "Forum scoping" do
   end
 
   scenario "is only the forum admin for one account" do
-    sign_in_as(:user => account_a.owner)
-    visit "http://#{account_a.subdomain}.example.com" 
+    visit "http://#{account_a.subdomain}.example.com"
+    fill_in "Email", :with => account_a.owner.email
+    fill_in "Password", :with => "password"
+    click_button "Sign in"
     page.should have_content("Admin Area")
 
     visit "http://#{account_b.subdomain}.example.com"

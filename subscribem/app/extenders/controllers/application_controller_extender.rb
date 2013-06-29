@@ -4,7 +4,7 @@
   end
   helper_method :current_account
 
-  def current_user
+  def current_user 
     if user_signed_in?
       @current_user ||= begin
         user_id = env['warden'].user(:scope => :user)

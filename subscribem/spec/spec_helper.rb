@@ -5,6 +5,7 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'factory_girl'
 require 'capybara/rspec'
+require 'subscribem/testing_support/authentication_helpers'
 require 'subscribem/testing_support/database_cleaning'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
@@ -13,7 +14,7 @@ Dir[File.dirname(__FILE__) + "/support/**/*.rb"].each { |f| require f }
 
 RSpec.configure do |config|
   config.include Subscribem::TestingSupport::DatabaseCleaning
-  config.include AuthenticationHelpers, :type => :feature
+  config.include Subscribem::TestingSupport::AuthenticationHelpers, :type => :feature
 
   # ## Mock Framework
   #

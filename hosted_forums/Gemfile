@@ -44,7 +44,7 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 gem 'subscribem', :path => '../subscribem'
-gem 'forem', :github => 'radar/forem'
+gem 'forem', :github => 'radar/forem', :branch => 'master'
 gem 'kaminari', '0.14.1'
 gem 'pry'
 gem 'launchy'
