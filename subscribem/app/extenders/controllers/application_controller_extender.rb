@@ -1,6 +1,15 @@
 ::ApplicationController.class_eval do
   def current_account
-    Subscribem::Account.find_by_subdomain(request.subdomain)
+    if user_signed_in?
+      @current_account ||= begin
+        begin
+          account_id = env['warden'].user(:scope => :account)
+          Subscribem::Account.find(account_id)
+        rescue ActiveRecord::RecordNotFound
+          Subscribem::Account.find_by_subdomain!(request.subdomain)
+        end
+      end
+    end
   end
   helper_method :current_account
 
@@ -29,4 +38,9 @@
   def force_authentication!(user)
     env['warden'].set_user(user.id, :scope => :user)
   end
+
+  def owner?
+    current_account.owner?(current_user)
+  end
+  helper_method :owner?
 end

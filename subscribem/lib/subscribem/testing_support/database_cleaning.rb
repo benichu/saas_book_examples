@@ -4,9 +4,8 @@ module Subscribem
   module TestingSupport
     module DatabaseCleaning
       def self.included(config)
-        config.before(:suite) do
-          DatabaseCleaner.strategy = :truncation
-          DatabaseCleaner.clean_with(:truncation)
+        config.before(:all) do
+          DatabaseCleaner.strategy = :truncation, {:pre_count => true, :reset_ids => true}
         end
 
         config.before(:each) do

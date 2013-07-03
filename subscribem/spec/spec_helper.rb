@@ -42,10 +42,6 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
-
-  config.after(:each) do
-    Apartment::Database.reset
-  end
 end
 
 Capybara.app_host = "http://example.com"

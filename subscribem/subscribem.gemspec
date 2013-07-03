@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
   s.add_dependency "warden", '1.2.1'
   s.add_dependency "dynamic_form", "1.1.4"
   s.add_dependency "apartment", "0.21.1"
+  s.add_dependency "braintree", "2.23.0"
 
   s.add_development_dependency "pg"
   s.add_development_dependency "rspec-rails", '2.12.2'
@@ -29,4 +30,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "database_cleaner", "1.0.1"
   s.add_development_dependency "pry"
   s.add_development_dependency "launchy"
+  s.add_development_dependency "selenium-webdriver", "2.33.0"
 end
